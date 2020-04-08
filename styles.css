@@ -1,0 +1,111 @@
+@font-face{
+
+    font-family: 'RobotoThin';
+    src: url('font/3967.ttf') format('truetype')
+}
+
+body
+{
+    font-family: "RobotoThin";
+    margin: 0;
+    font-size: 16px;
+    background-color:white;
+}
+
+header
+{
+    width: 100%;
+    height: 500px;
+    margin: 0;
+    background-image: url('img/main.jpg');
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-color: black;
+}
+
+nav
+{
+    position: absolute;
+    color:rgb(122, 122, 122);
+    width: 100%;
+    font-weight: 1000;
+    font-size:2em;
+    background-color: black;
+}
+
+nav ul{margin: 0;}
+
+nav li
+{
+    float: left;
+    margin: 15px;
+    list-style: none;
+}
+
+nav p
+{
+   
+    float: right;
+    margin: 15px;
+
+}
+
+main
+{
+    display: grid;
+}
+
+section
+{
+    width:100%;
+    background-color:rgb(212, 212, 212)
+
+}
+
+form
+{
+    display: grid;
+    width: fit-content;
+    margin: 20px;
+    padding: 15px;
+    background-color: rgb(228, 228, 228);
+}
+
+form h3
+{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+input
+{
+    border-radius: 25px;
+    font-size: 1em;
+    border: none;
+    margin-top: 10px;
+    padding: 15px;
+    display: grid;
+}
+
+input[type=submit]
+{
+    background-color: rgb(228, 228, 228);
+    padding: 25px 50px;
+    font-weight: 600;
+    font-size: 1em;
+    color: rgb(107, 106, 106);
+    border-color: rgb(107, 106, 106);
+    border: solid;
+    border-radius: 35%;
+    border-width: 4px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.forms
+{
+    display: flex;
+    margin: auto;
+    width: fit-content;
+}
