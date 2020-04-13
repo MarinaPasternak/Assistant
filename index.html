@@ -11,35 +11,38 @@
 
     <section class='log-regst-forms'>
         <div class='forms'>
-            <form id='Regesrt'>
+            <form id='Regestr'>
                 <h3>Regestration</h3>
-                <input type="text">
-                <input type="text">
-                <input type="text">
-                <input type="text">
-                <input type='submit' value='Submit'>
+                <input type='text' id='nick' required placeholder='Nickname'>
+                <input type='email' id='email' required placeholder='Email'>
+                <input type="password" id='pass' required placeholder='Password'>
+                <input type="password" id='passAgain' required placeholder='Password again'>
+                <address><a href="#LogIn">Log in</a></address>
+                <input type="submit" value="Regestrate">
             </form>
             <form id='LogIn'>
                 <h3>Log in</h3>
-                <input type="text">
-                <input type="text">
-                <input type="text">
-                <input type="text">
-                <input type='submit' value='Log in'>
+                <input id='logName'type='text' required placeholder='Nickname'>
+                <input id='logPass'type="password" required placeholder='Password'>
+                <address><a href="#Regestr">Regestrate now</a></address>
+                <input type="submit" value="Log in">
             </form>
         </div>
     </section>
 
-    <header>
-        <nav>
-            <p>User`s name</p>
-            <ul>
-                <li>My Cars</li>
-                <li>Sheduale</li>
-                <li>Charts</li>
-                <li>Sign out</li>
+    <header> 
+        <nav>  
+            <ul id='menu' class='show-block'>
+                <li id='userName'>User`s name</li>
+                <li><a href="#MyCars">My cars</a></li>
+                <li><a href="#AddCar">Add car</a></li>
+                <li><a href="#Sheduale">Sheduale</a></li>
+                <li><a href="#AddDate">Add Date</a></li>
+                <li><a href="#Charts">Charts</a></li>
+                <li id='addModel'><a href="#AddModel">Add Model</a></li>
+                <li><a href="#FAQ">FAQ</a></li>
+                <li><button>Sign out</button></li>
             </ul>
-            
         </nav>
     </header>
 
@@ -51,19 +54,175 @@
             </section>
             
             <section id='View'>
+                <div class='container'>
+                    <div class='view-car'>
+                        <figure>
+                            <img src="img/1.jpeg">
+                            <figcaption>
+                                <h3>Model</h3>
+                                <p>Some info</p>
+                            </figcaption>
+                        </figure>
+                        <div class='buttons'>
+                            <button><a href="#ChangInfo">Change</a></button>
+                            <button><a href="#Charts">Charts</a></button>
+                        </div>
+                    </div>
 
+                    <div class='view-car'>
+                        <figure>
+                            <img src="img/1.jpeg">
+                            <figcaption>
+                                <h3>Model</h3>
+                                <p>Some info</p>
+                            </figcaption>
+                        </figure>
+                        <div class='buttons'>
+                            <button><a href="#ChangInfo">Change</a></button>
+                            <button><a href="#Charts">Charts</a></button>
+                        </div>
+                    </div>
+
+                    <div class='view-car'>
+                        <figure>
+                            <img src="img/1.jpeg">
+                            <figcaption>
+                                <h3>Model</h3>
+                                <p>Some info</p>
+                            </figcaption>
+                        </figure>
+                        <div class='buttons'>
+                            <button><a href="#ChangInfo">Change</a></button>
+                            <button><a href="#Charts">Charts</a></button>
+                        </div>
+                    </div>
+                </div>
             </section>
+
         </section> 
 
         <section id='Sheduale'>
-
+            <h2>Your Sheduale</h2>
+            <div class='calendar'>
+                <div class='back'>
+                    <p>August</p>
+                    <p>2020</p>
+                </div>
+                <div class='date'>
+                    <ul class="weekdays">
+                        <li>Mo</li>
+                        <li>Tu</li>
+                        <li>We</li>
+                        <li>Th</li>
+                        <li>Fr</li>
+                        <li>Sa</li>
+                        <li>Su</li>
+                      </ul>
+                      
+                      <ul class="days">  
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li><span class="active">10</span></li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li>16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                        <li>21</li>
+                        <li>22</li>
+                        <li>23</li>
+                        <li>24</li>
+                        <li>25</li>
+                        <li>26</li>
+                        <li>27</li>
+                        <li>28</li>
+                        <li>29</li>
+                        <li>30</li>
+                        <li>31</li>
+                      </ul>
+                </div>
+            </div>
         </section> 
+
+        <section id='AddDate'>
+            <h2>Choose date and time</h2>
+            <div class='calendar'>
+                <div class='back'>
+                    <p>August</p>
+                    <p>2020</p>
+                </div>
+                <div class='date'>
+                    <ul class="weekdays">
+                        <li>Mo</li>
+                        <li>Tu</li>
+                        <li>We</li>
+                        <li>Th</li>
+                        <li>Fr</li>
+                        <li>Sa</li>
+                        <li>Su</li>
+                      </ul>
+                      
+                      <ul class="days">  
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li><span class="active">10</span></li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li>16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                        <li>21</li>
+                        <li>22</li>
+                        <li>23</li>
+                        <li>24</li>
+                        <li>25</li>
+                        <li>26</li>
+                        <li>27</li>
+                        <li>28</li>
+                        <li>29</li>
+                        <li>30</li>
+                        <li>31</li>
+                      </ul>
+                </div>
+            </div>
+            
+        </section>
 
         <section id='Charts'>
 
         </section> 
 
         <section id='AddCar'>
+
+        </section>
+        <section id='AddModel'>
+
+        </section>
+        <section id='FAQ'>
 
         </section>
     </main>

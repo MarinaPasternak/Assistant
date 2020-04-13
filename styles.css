@@ -12,6 +12,13 @@ body
     background-color:white;
 }
 
+h2
+{
+    text-align: center;
+    font-size: 3em;
+    font-weight: 800;
+}
+
 header
 {
     width: 100%;
@@ -20,7 +27,7 @@ header
     background-image: url('img/main.jpg');
     background-repeat: no-repeat;
     background-position: center; 
-    background-color: black;
+    
 }
 
 nav
@@ -29,26 +36,68 @@ nav
     color:rgb(122, 122, 122);
     width: 100%;
     font-weight: 1000;
-    font-size:2em;
     background-color: black;
+    font-size:2em;
 }
 
-nav ul{margin: 0;}
+nav ul
+{
+    margin: auto;
+    display: grid;
+    width: fit-content;
+    text-align: center;
+}
 
 nav li
 {
-    float: left;
     margin: 15px;
     list-style: none;
 }
 
-nav p
+a
 {
-   
-    float: right;
-    margin: 15px;
-
+    text-decoration: none;
+    color:rgb(122, 122, 122);
 }
+
+nav #userName
+{
+     font-size: 2em;
+}
+
+nav button
+{
+    background-color: black;
+    color:rgb(122, 122, 122);
+    
+}
+
+.hidden-block{
+	opacity:0; 
+	transition: 1s; 
+}
+
+.show-block{
+	opacity:1; 
+	transition: 1s; 
+}
+
+.burger-menu
+{
+    width:50px;
+    height:50px;
+    border:solid;
+    display: grid;
+    border-radius: 20%;
+    border-color: rgb(107, 106, 106);
+}
+.menu-items
+{
+    background-color: rgb(107, 106, 106);
+    margin: 5px;
+    border-radius: 25%;
+}
+
 
 main
 {
@@ -66,9 +115,18 @@ form
 {
     display: grid;
     width: fit-content;
+    height: fit-content;
     margin: 20px;
     padding: 15px;
+    text-align: center;
     background-color: rgb(228, 228, 228);
+}
+
+form address
+{
+    font-size: 1em;
+    font-weight: 600;
+    margin: 10px;
 }
 
 form h3
@@ -88,14 +146,14 @@ input
     display: grid;
 }
 
+
 input[type=submit]
 {
     background-color: rgb(228, 228, 228);
     padding: 25px 50px;
     font-weight: 600;
     font-size: 1em;
-    color: rgb(107, 106, 106);
-    border-color: rgb(107, 106, 106);
+    color: #108a71;
     border: solid;
     border-radius: 35%;
     border-width: 4px;
@@ -108,4 +166,102 @@ input[type=submit]
     display: flex;
     margin: auto;
     width: fit-content;
+}
+
+button
+{
+    padding: 25px 20px;
+    font-weight: 600;
+    font-size: 1em;
+    border: solid;
+    border-radius: 35%;
+    border-width: 4px;
+    margin: auto;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.view-car button
+{
+    background-color:  rgb(228, 228, 228);
+    color: #108a71;
+    
+}
+button a{color: #108a71;}
+
+.view-car
+{
+    background-color:  rgb(228, 228, 228);
+    display: grid;
+    font-weight: 600;
+    margin: 20px;
+}
+
+
+.view-car h3{text-align: center;}
+
+.view-car figure img
+{
+    width: 300px;
+    height: 250px;
+}
+
+.container
+{
+    display: flex;
+    margin: auto;
+    width: fit-content;
+
+}
+
+.buttons
+{
+    display: flex;
+    margin: 10px;
+}
+
+.calendar
+{
+    text-align: center;
+}
+
+.back
+{
+    background-color: #1abc9c;
+    color:white;
+    text-align: center;
+    font-size: 3em;
+}
+
+ul {list-style-type: none;}
+
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    display:grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #ddd;
+}
+
+.weekdays ul {
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    display:grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 1em;
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+
+li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
 }
