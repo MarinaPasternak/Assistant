@@ -12,7 +12,7 @@
     <section class='log-regst-forms'>
         <div class='forms'>
             <form id='Regestr'>
-                <h3>Regestration</h3>
+                <h3>Registration</h3>
                 <input type='text' id='nick' required placeholder='Nickname'>
                 <input type='email' id='email' required placeholder='Email'>
                 <input type="password" id='pass' required placeholder='Password'>
@@ -24,7 +24,7 @@
                 <h3>Log in</h3>
                 <input id='logName'type='text' required placeholder='Nickname'>
                 <input id='logPass'type="password" required placeholder='Password'>
-                <address><a href="#Regestr">Regestrate now</a></address>
+                <address><a href="#Regestr">Registrat now</a></address>
                 <input type="submit" value="Log in">
             </form>
         </div>
@@ -37,7 +37,6 @@
                 <li><a href="#MyCars">My cars</a></li>
                 <li><a href="#AddCar">Add car</a></li>
                 <li><a href="#Sheduale">Sheduale</a></li>
-                <li><a href="#AddDate">Add Date</a></li>
                 <li><a href="#Charts">Charts</a></li>
                 <li id='addModel'><a href="#AddModel">Add Model</a></li>
                 <li><a href="#FAQ">FAQ</a></li>
@@ -97,133 +96,194 @@
                         </div>
                     </div>
                 </div>
+                <form id='AddNewCar'>
+                    <h3>Add a new car</h3>
+                    <label>Model
+                        <select>
+                            <option>New ASX</option>
+                            <option>New L200</option>
+                            <option>Pajero sport</option>
+                            <option>Pajero</option>
+                        </select>
+                    </label>
+                     <label>Petrol
+                        <select>
+                            <option>95</option>
+                            <option>93</option>
+                            <option>94</option>
+                        </select>
+                    </label>
+                    <input type="submit" value="Add car">
+                </form>
             </section>
 
         </section> 
 
         <section id='Sheduale'>
-            <h2>Your Sheduale</h2>
+           
             <div class='calendar'>
-                <div class='back'>
-                    <p>August</p>
-                    <p>2020</p>
+                <div class="calendar-container">
+                        <h2>Your Sheduale</h2>
+                        <span class='back'>
+                            <p>August</p>
+                            <p>2020</p>
+                        </span>
+                    <div class='date'>
+                        <ul class="days">
+                                <li>Mo</li>
+                                <li>Tu</li>
+                                <li>We</li>
+                                <li>Th</li>
+                                <li>Fr</li>
+                                <li>Sa</li>
+                                <li>Su</li>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li>9</li>
+                                <li><span class="active">10</span></li>
+                                <li>11</li>
+                                <li>12</li>
+                                <li>13</li>
+                                <li>14</li>
+                                <li>15</li>
+                                <li>16</li>
+                                <li>17</li>
+                                <li>18</li>
+                                <li>19</li>
+                                <li>20</li>
+                                <li>21</li>
+                                <li>22</li>
+                                <li>23</li>
+                                <li>24</li>
+                                <li>25</li>
+                                <li>26</li>
+                                <li>27</li>
+                                <li>28</li>
+                                <li>29</li>
+                                <li>30</li>
+                                <li>31</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class='date'>
-                    <ul class="weekdays">
-                        <li>Mo</li>
-                        <li>Tu</li>
-                        <li>We</li>
-                        <li>Th</li>
-                        <li>Fr</li>
-                        <li>Sa</li>
-                        <li>Su</li>
-                      </ul>
-                      
-                      <ul class="days">  
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                        <li>6</li>
-                        <li>7</li>
-                        <li>8</li>
-                        <li>9</li>
-                        <li><span class="active">10</span></li>
-                        <li>11</li>
-                        <li>12</li>
-                        <li>13</li>
-                        <li>14</li>
-                        <li>15</li>
-                        <li>16</li>
-                        <li>17</li>
-                        <li>18</li>
-                        <li>19</li>
-                        <li>20</li>
-                        <li>21</li>
-                        <li>22</li>
-                        <li>23</li>
-                        <li>24</li>
-                        <li>25</li>
-                        <li>26</li>
-                        <li>27</li>
-                        <li>28</li>
-                        <li>29</li>
-                        <li>30</li>
-                        <li>31</li>
-                      </ul>
+                <div class="calendar-container">
+                    <h2>Choose date and time</h2>
+                        <span class='back'>
+                            <p>August</p>
+                            <p>2020</p>
+                        </span>
+                        <div class='date'>
+                            <ul class="days">
+                                <li>Mo</li>
+                                <li>Tu</li>
+                                <li>We</li>
+                                <li>Th</li>
+                                <li>Fr</li>
+                                <li>Sa</li>
+                                <li>Su</li>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li>9</li>
+                                <li><span class="active">10</span></li>
+                                <li>11</li>
+                                <li>12</li>
+                                <li>13</li>
+                                <li>14</li>
+                                <li>15</li>
+                                <li>16</li>
+                                <li>17</li>
+                                <li>18</li>
+                                <li>19</li>
+                                <li>20</li>
+                                <li>21</li>
+                                <li>22</li>
+                                <li>23</li>
+                                <li>24</li>
+                                <li>25</li>
+                                <li>26</li>
+                                <li>27</li>
+                                <li>28</li>
+                                <li>29</li>
+                                <li>30</li>
+                                <li>31</li>
+                            </ul>
+                            <form id='addDateTime'>
+                                <label for="appt">Choose a time for your meeting:</label>
+                                <input type="time" id="appt" name="appt"min="09:00" max="18:00" required>
+                                <input type='submit' value='Submit'>
+                            </form>
+                        </div>
                 </div>
-            </div>
-        </section> 
 
-        <section id='AddDate'>
-            <h2>Choose date and time</h2>
-            <div class='calendar'>
-                <div class='back'>
-                    <p>August</p>
-                    <p>2020</p>
                 </div>
-                <div class='date'>
-                    <ul class="weekdays">
-                        <li>Mo</li>
-                        <li>Tu</li>
-                        <li>We</li>
-                        <li>Th</li>
-                        <li>Fr</li>
-                        <li>Sa</li>
-                        <li>Su</li>
-                      </ul>
-                      
-                      <ul class="days">  
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                        <li>6</li>
-                        <li>7</li>
-                        <li>8</li>
-                        <li>9</li>
-                        <li><span class="active">10</span></li>
-                        <li>11</li>
-                        <li>12</li>
-                        <li>13</li>
-                        <li>14</li>
-                        <li>15</li>
-                        <li>16</li>
-                        <li>17</li>
-                        <li>18</li>
-                        <li>19</li>
-                        <li>20</li>
-                        <li>21</li>
-                        <li>22</li>
-                        <li>23</li>
-                        <li>24</li>
-                        <li>25</li>
-                        <li>26</li>
-                        <li>27</li>
-                        <li>28</li>
-                        <li>29</li>
-                        <li>30</li>
-                        <li>31</li>
-                      </ul>
-                </div>
-            </div>
             
         </section>
 
         <section id='Charts'>
-
+            <h2>Yoour charts</h2>
+            <div class="figures">
+                <figure>
+                    <img src="img/ex1.png">
+                    <figcaption>Caption</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/ex2.png">
+                    <figcaption>Caption</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/ex3.png">
+                    <figcaption>Caption</figcaption>
+                </figure>
+            </div>
         </section> 
 
-        <section id='AddCar'>
-
-        </section>
         <section id='AddModel'>
-
+            <h2>New new model</h3>
+            <form id='AddNewCar'>
+                <h3>Add a new model</h3>
+                <input type='text' placeholder="name of model">
+                <input type='text' placeholder="picture like 1.jpg">
+                <input type='text' placeholder="liters">
+                <input type="submit" value="Add car">
+            </form>
         </section>
-        <section id='FAQ'>
 
+        <section id='FAQ'>
+            <h2>FAQ</h2>
+            <div class='lists'>
+                <ol>
+                    <caption>Rules</caption>
+                    <li>Rule some text 1</li>
+                    <li>Rule some text 2</li>
+                    <li>Rule some text 3</li>
+                    <li>Rule some text 4</li>
+                </ol>
+                <ol>
+                    <caption>How to use</caption>
+                    <li>Rule some text 1</li>
+                    <li>Rule some text 2</li>
+                    <li>Rule some text 3</li>
+                    <li>Rule some text 4</li>
+                </ol>
+                <ol>
+                    <caption>Advices</caption>
+                    <li>Rule some text 1</li>
+                    <li>Rule some text 2</li>
+                    <li>Rule some text 3</li>
+                    <li>Rule some text 4</li>
+                </ol>
+            </div>
         </section>
     </main>
    

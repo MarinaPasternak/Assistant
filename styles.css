@@ -8,7 +8,8 @@ body
 {
     font-family: "RobotoThin";
     margin: 0;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 800;
     background-color:white;
 }
 
@@ -17,6 +18,8 @@ h2
     text-align: center;
     font-size: 3em;
     font-weight: 800;
+    color: #108a71;
+    background-color: rgb(228, 228, 228);
 }
 
 header
@@ -116,10 +119,11 @@ form
     display: grid;
     width: fit-content;
     height: fit-content;
-    margin: 20px;
+    margin: auto;
     padding: 15px;
     text-align: center;
     background-color: rgb(228, 228, 228);
+    border-radius: 25px;
 }
 
 form address
@@ -146,6 +150,15 @@ input
     display: grid;
 }
 
+select
+{
+    border-radius: 25px;
+    font-size: 1em;
+    border: none;
+    margin-top: 10px;
+    padding: 15px;
+}
+
 
 input[type=submit]
 {
@@ -166,6 +179,11 @@ input[type=submit]
     display: flex;
     margin: auto;
     width: fit-content;
+}
+
+#addDateTime{
+    margin: auto;
+    margin-top: 3%;
 }
 
 button
@@ -223,6 +241,7 @@ button a{color: #108a71;}
 .calendar
 {
     text-align: center;
+    display: grid;
 }
 
 .back
@@ -231,30 +250,26 @@ button a{color: #108a71;}
     color:white;
     text-align: center;
     font-size: 3em;
+    width: 100%;
 }
+.calendar-container
+{
+    display: grid;
+    width: 50%;
+    margin: auto;
+}
+
 
 ul {list-style-type: none;}
 
 
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    display:grid;
-    grid-template-columns: repeat(7, 1fr);
-    background-color: #ddd;
-}
 
-.weekdays ul {
-    color: #666;
-    text-align: center;
-}
 
 .days {
     display:grid;
     grid-template-columns: repeat(7, 1fr);
     grid-column-gap: 20px;
-    grid-row-gap: 1em;
-    padding: 10px 0;
+    grid-row-gap: 2em;
     background: #eee;
     margin: 0;
 }
@@ -263,5 +278,41 @@ ul {list-style-type: none;}
 li .active {
     padding: 5px;
     background: #1abc9c;
-    color: white !important
+    color: white;
+}
+
+.lists
+{
+    
+    color: black;
+    display: flex;
+    
+
+}
+.lists ol
+{
+    font-size: 1em;
+    background-color: rgb(228, 228, 228);
+    margin: auto;
+    padding: 3%;
+    
+}
+.lists li
+{
+    margin: 3%;
+}
+.figures
+{
+    display: grid;
+    margin: auto;
+}
+.figures figure
+{
+    width: fit-content;
+    margin: auto;
+}
+
+.figures figure img
+{
+    width: 600px;
 }
