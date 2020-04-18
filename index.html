@@ -9,7 +9,7 @@
 
   <body>
 
-    <section class='log-regst-forms'>
+    <section class='log-regst-forms' id='sectionRegestr'>
         <div class='forms'>
             <form id='Regestr'>
                 <h3>Registration</h3>
@@ -30,22 +30,26 @@
         </div>
     </section>
 
-    <header> 
-        <nav>  
-            <ul id='menu' class='show-block'>
-                <li id='userName'>User`s name</li>
-                <li><a href="#MyCars">My cars</a></li>
-                <li><a href="#AddCar">Add car</a></li>
-                <li><a href="#Sheduale">Sheduale</a></li>
-                <li><a href="#Charts">Charts</a></li>
-                <li id='addModel'><a href="#AddModel">Add Model</a></li>
-                <li><a href="#FAQ">FAQ</a></li>
-                <li><button>Sign out</button></li>
-            </ul>
-        </nav>
-    </header>
+    
 
-    <main>
+    <main id='mainBlock'>
+
+        <header> 
+            <nav>  
+                <ul id='menu' class='show-block'>
+                    <li id='userName'>User`s name</li>
+                    <li><a href="#MyCars">My cars</a></li>
+                    <li><a href="#AddCar">Add car</a></li>
+                    <li><a href="#Sheduale">Sheduale</a></li>
+                    <li><a href="#Charts">Charts</a></li>
+                    <li class='for-admin'><a href="#AddModel">Add Model</a></li>
+                    <li><a href="#FAQ">FAQ</a></li>
+                    <li><button>Sign out</button></li>
+                </ul>
+            </nav>
+        </header>
+
+
         <section id='MyCars'>
 
             <section id='ChangInfo'>
@@ -248,7 +252,7 @@
             </div>
         </section> 
 
-        <section id='AddModel'>
+        <section id='AddModel' class='for-admin'>
             <h2>New new model</h3>
             <form id='AddNewCar'>
                 <h3>Add a new model</h3>
