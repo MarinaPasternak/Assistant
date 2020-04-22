@@ -111,12 +111,17 @@ function ForSubmit()
             let password1=document.getElementById('pass').value;
             let password2=document.getElementById('passAgain').value; 
             youCanRegistr = validateFormRegestration(nick,email,password1,password2);
-            if(youCanRegistr)
+            if(youCanRegistr==true)
         {
             let userCreated = new User(nick,email,password1);
             alert('Registration was success');
             localStorage.setItem(userCreated.id,JSON.stringify(userCreated));
             Users.push(userCreated);  
+        }
+        else
+        {
+            document.getElementById('Regetr').style.display='';
+            document.getElementById('LogIn').style.display='none';
             return false;
         }
     }
@@ -350,7 +355,7 @@ class calendar extends HTMLElement {
             backArrow.style.visibility='visible';
             if(currMounth==12)
             {
-                monthToMove=0;
+                currMounth=0;
                 currentYear=currentYear+1
             }
             ulDays.innerHTML = "";
