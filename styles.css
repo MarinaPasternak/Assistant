@@ -10,7 +10,7 @@ body
     margin: 0;
     font-size: 18px;
     font-weight: 800;
-    background-color:rgb(212, 212, 212);;
+    background-color:rgb(212, 212, 212);
 }
 
 h2
@@ -25,7 +25,7 @@ h2
 header
 {
     width: 100%;
-    height: 500px;
+    height: 800px;
     margin: 0;
     background-image: url('img/main.jpg');
     background-repeat: no-repeat;
@@ -33,7 +33,7 @@ header
     
 }
 
-nav
+header nav
 {
     position: absolute;
     color:rgb(122, 122, 122);
@@ -43,7 +43,7 @@ nav
     font-size:2em;
 }
 
-nav ul
+header nav ul
 {
     margin: auto;
     display: grid;
@@ -51,7 +51,7 @@ nav ul
     text-align: center;
 }
 
-nav li
+header nav li
 {
     margin: 15px;
     list-style: none;
@@ -63,12 +63,12 @@ a
     color:rgb(122, 122, 122);
 }
 
-nav #userName
+header nav #userName
 {
      font-size: 2em;
 }
 
-nav button
+header nav button
 {
     background-color: black;
     color:rgb(122, 122, 122);
@@ -109,9 +109,11 @@ main
 
 section
 {
-    width:100%;
-    background-color:rgb(212, 212, 212)
-
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    margin-top: 3%;
+    background-color: rgb(212, 212, 212);
 }
 
 form
@@ -187,6 +189,16 @@ input[type=submit]
     margin-top: 3%;
 }
 
+textarea
+{
+    border-radius: 25px;
+    font-size: 1em;
+    border: none;
+    margin-top: 10px;
+    padding: 15px;
+    display: grid;
+}
+
 button
 {
     padding: 25px 20px;
@@ -199,13 +211,18 @@ button
     margin-top: 10px;
     cursor: pointer;
 }
-
+#btnMenu
+{
+    background-color: #108a71;
+    color:  black;
+}
 .view-car button
 {
     background-color:  rgb(228, 228, 228);
     color: #108a71;
     
 }
+
 button a{color: #108a71;}
 
 .view-car
@@ -250,8 +267,17 @@ button a{color: #108a71;}
     background-color: #1abc9c;
     color:white;
     text-align: center;
+    display: flex;
     font-size: 3em;
     width: 100%;
+}
+.back button
+{
+    color: white;
+    background-color: #1abc9c;
+    display: flex;
+    margin: auto;
+
 }
 .calendar-container
 {
@@ -262,9 +288,6 @@ button a{color: #108a71;}
 
 
 ul {list-style-type: none;}
-
-
-
 
 .days {
     display:grid;
@@ -284,18 +307,18 @@ li .active {
 
 .lists
 {
-    
     color: black;
     display: flex;
-    
+    margin: auto;
+    width: 100%;
 
 }
 .lists ol
 {
     font-size: 1em;
     background-color: rgb(228, 228, 228);
-    margin: auto;
-    padding: 3%;
+    margin: 10px;
+    width: 100%;
     
 }
 .lists li
@@ -317,3 +340,174 @@ li .active {
 {
     width: 600px;
 }
+
+.arrow-scroll {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    bottom: -60%;
+}
+.arrow-scroll:before {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-left: 26px solid #0c6e5b;
+    border-bottom: 26px solid #0c6e5b;
+    transform: translate(26px, 106px) rotate(-45deg);
+    animation: arrow-scroll 3s linear infinite;
+}
+.arrow-scroll:after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;    
+    width: 100%;
+    height: 100%;
+    border-left: 26px solid #0c6e5b;
+    border-bottom: 26px solid #0c6e5b;
+    transform: translate(53px, 0px) rotate(-45deg);
+    animation: arrow-scroll 3s linear infinite -1.5s;
+}
+ 
+@keyframes arrow-scroll {
+    0% {
+        opacity: 0;
+        transform: translate(-13px, -53px) rotate(-45deg);
+    }
+    10%, 90% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;  
+        border-left: 26px solid #0c6e5b;
+        border-bottom: 26px solid #0c6e5b;
+        transform: translate(-13px, 0px) rotate(-45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-13px, 53px) rotate(-45deg);
+    }
+}
+
+
+
+#navigation ul
+{
+    list-style: none;
+    margin: auto;
+    display: flex;
+}
+#navigation li
+{
+    float:left;
+}
+#navigation 
+{
+    background-color:rgb(212, 212, 212);
+    width: 100%;
+    display: flex;
+
+}
+
+#navigation a :active 
+{
+    background: #0c6e5b;
+    
+}
+#navigation .var1 li:last-child a
+{
+    background: #0c6e5b;
+}
+#navigation  ul li a:after {
+    padding: -1px 40px 0 40px;
+    content: "";
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid #0c6e5b;
+    position: absolute;
+    right: -40px;
+    top: 0;
+    z-index: 1;
+}
+#navigation ul li a:before {
+	content: "";
+	border-top: 40px solid transparent;
+	border-bottom: 40px solid transparent;
+	border-left: 40px solid rgb(212, 212, 212);
+    position: absolute; 
+    left: 0; 
+    top: 0;
+    
+}
+
+#navigation ul li a
+{
+    display: block;
+    float: left;
+    height: 50px;
+    background: #0c6e5b;
+    text-align: center;
+    padding: 30px 40px 0 80px;
+    position: relative;
+    margin: 0 10px 0 0;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+#navigation ul li:first-child a {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#navigation ul li:first-child a:before {
+	display: none;
+}
+#navigation ul li:last-child a {
+	padding-right: 80px;
+    border-top-right-radius: 10px;
+     border-bottom-right-radius: 10px;
+}
+#navigation ul li:last-child a:after {
+	display: none;
+}
+
+.massage {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  /* Darker chat container */
+  .darker {
+    border-color: #8bccbf;
+    background-color: #8bccbf;
+  }
+  
+  /* Clear floats */
+  .massage::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Style images */
+  /* Style time text */
+  .time-right {
+    float: right;
+    color: #aaa;
+  }
+  
+  /* Style time text */
+  .time-left {
+    float: left;
+    color: #999;
+  }
+  .chat
+  {
+      overflow: auto;
+      height: 400px;
+  }
+  

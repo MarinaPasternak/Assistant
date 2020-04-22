@@ -28,6 +28,7 @@
                 <input type="submit" value="Log in">
             </form>
         </div>
+        
     </section>
 
     
@@ -35,7 +36,9 @@
     <main id='mainBlock'>
 
         <header> 
+            
             <nav>  
+                <button id='btnMenu'>Menu</button>
                 <ul id='menu' class='show-block'>
                     <li id='userName'>User`s name</li>
                     <li><a href="#MyCars">My cars</a></li>
@@ -47,16 +50,30 @@
                     <li><button>Sign out</button></li>
                 </ul>
             </nav>
+            
+            <div class="arrow-scroll"></div>
         </header>
 
+    <section>
+        <nav id='navigation'>
+            <ul class='var1'>
+                <li><a href="#navigation">One</a></li>
+                <li><a href="">Two</a></li>
+                <li><a href="">Two</a></li>
+                <li><a href="">Two</a></li>
+                <li><a href="">Three</a></li>
+            </ul>
+        </nav>
+    </section>
 
-        <section id='MyCars'>
+    <section id='MyCars'>
 
             <section id='ChangInfo'>
 
             </section>
             
             <section id='View'>
+                <h2>Your cars</h2>
                 <div class='container'>
                     <div class='view-car'>
                         <figure>
@@ -124,113 +141,20 @@
         </section> 
 
         <section id='Sheduale'>
-           
-            <div class='calendar'>
-                <div class="calendar-container">
-                        <h2>Your Sheduale</h2>
-                        <span class='back'>
-                            <p>August</p>
-                            <p>2020</p>
-                        </span>
-                    <div class='date'>
-                        <ul class="days">
-                                <li>Mo</li>
-                                <li>Tu</li>
-                                <li>We</li>
-                                <li>Th</li>
-                                <li>Fr</li>
-                                <li>Sa</li>
-                                <li>Su</li>
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
-                                <li>4</li>
-                                <li>5</li>
-                                <li>6</li>
-                                <li>7</li>
-                                <li>8</li>
-                                <li>9</li>
-                                <li><span class="active">10</span></li>
-                                <li>11</li>
-                                <li>12</li>
-                                <li>13</li>
-                                <li>14</li>
-                                <li>15</li>
-                                <li>16</li>
-                                <li>17</li>
-                                <li>18</li>
-                                <li>19</li>
-                                <li>20</li>
-                                <li>21</li>
-                                <li>22</li>
-                                <li>23</li>
-                                <li>24</li>
-                                <li>25</li>
-                                <li>26</li>
-                                <li>27</li>
-                                <li>28</li>
-                                <li>29</li>
-                                <li>30</li>
-                                <li>31</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="calendar-container">
-                    <h2>Choose date and time</h2>
-                        <span class='back'>
-                            <p>August</p>
-                            <p>2020</p>
-                        </span>
-                        <div class='date'>
-                            <ul class="days">
-                                <li>Mo</li>
-                                <li>Tu</li>
-                                <li>We</li>
-                                <li>Th</li>
-                                <li>Fr</li>
-                                <li>Sa</li>
-                                <li>Su</li>
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
-                                <li>4</li>
-                                <li>5</li>
-                                <li>6</li>
-                                <li>7</li>
-                                <li>8</li>
-                                <li>9</li>
-                                <li><span class="active">10</span></li>
-                                <li>11</li>
-                                <li>12</li>
-                                <li>13</li>
-                                <li>14</li>
-                                <li>15</li>
-                                <li>16</li>
-                                <li>17</li>
-                                <li>18</li>
-                                <li>19</li>
-                                <li>20</li>
-                                <li>21</li>
-                                <li>22</li>
-                                <li>23</li>
-                                <li>24</li>
-                                <li>25</li>
-                                <li>26</li>
-                                <li>27</li>
-                                <li>28</li>
-                                <li>29</li>
-                                <li>30</li>
-                                <li>31</li>
-                            </ul>
-                            <form id='addDateTime'>
-                                <label for="appt">Choose a time for your meeting:</label>
-                                <input type="time" id="appt" name="appt"min="09:00" max="18:00" required>
-                                <input type='submit' value='Submit'>
-                            </form>
-                        </div>
-                </div>
 
-                </div>
+            <div class='calendar-container'>
+                <h2>Your shaduale</h2>
+                <new-calendar></new-calendar>
+            </div>
+            <div class="calendar-container" id='calenarForm'>
+                <h2>Choose date and time</h2>
+                <new-calendar></new-calendar>
+                <form id='addDateTime'>
+                    <label for="appt">Choose a time for your meeting:</label>
+                    <input type="time" id="appt" name="appt"min="09:00" max="18:00" required>
+                    <input type='submit' value='Submit'>
+                </form>
+             </div>
             
         </section>
 
@@ -262,6 +186,37 @@
                 <input type="submit" value="Add car">
             </form>
         </section>
+        <section id='help'>
+            <h2>Chat</h2>
+            <div class='chat'>
+                <div class="massage">
+                    <p>Hello. What can I do?</p>
+                    <span class="time-right">11:00</span>
+                </div>
+                
+                <div class="massage darker">
+                    <p>Hello, I have some problems with...</p>
+                    <span class="time-left">11:01</span>
+                </div>
+                
+                <div class="massage">
+                    <p>So, you can...</p>
+                    <span class="time-right">11:02</span>
+                </div>
+                
+                <div class="massage darker">
+                    <p>Thank you</p>
+                    <span class="time-left">11:05</span>
+                </div>
+            </div>
+            <form>
+                <label>Say something
+                    <textarea id="w3mission" rows="4" cols="50">
+                    </textarea>
+                </label>
+                <input type='submit' value="Send">
+            </form>
+        </section>
 
         <section id='FAQ'>
             <h2>FAQ</h2>
@@ -290,7 +245,7 @@
             </div>
         </section>
     </main>
-   
+    <script src="app.js"></script>
   </body>
-  <script src="app.js"></script>
+
 </html>
