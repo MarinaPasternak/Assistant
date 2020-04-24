@@ -1,9 +1,4 @@
-
-
-
-(function (){
-    
-    class User//all information about users 
+class User//all information about users 
     {
     
         constructor(nickname, email,password) {
@@ -31,39 +26,152 @@
 }
  
 
-
-class Admin extends User
+class Model
 {
-    
-    AddModel()
-    {
-       
+    constructor(label,img,liters) {
+        this.label = label;
+        this.pictAdress = 'img/'+img;
+        this.liters=liters
+        this.id='model'+(Models.length+1);
+  }
+
+}
+
+class Car
+{
+    constructor(patrol,userId,modelId) {
+        this.id='car'+(Cars.length+1);
+        this.patrols=patrol;
+        this.userId=userId;
+        this.modelId=modelId;
     }
-
 }
 
-
-class Models
+class dataForChart 
 {
-
+    constructor(spendliter,userId,modelId) {
+        this.id='data'+(Data.length+1);
+        this.spendliter=spendliter;
+        this.userId=userId;
+        this.modelId=modelId;
+      }
 }
 
-class Cars extends Models
+class Event
 {
-    constructor() {
-        
+    constructor(notes,time,date,userId) {
+        this.id='event'+(Evants.length+1);
+        this.date=date;
+        this.time=time;
+        this.userId=userId;
+        this.notes=notes;
+      }
+}
+
+class Comment
+{
+    constructor(notes,currDate,userId) {
+        this.id='event'+(Evants.length+1);
+        this.notes=notes;
+        this.currDate=currDate;
+        this.userId=userId;
       }
 }
 //some global
+(function (){
 let listGlobalArray={'user':Users=[],
                     'model':Models=[],
-                    'car':Cars=[]}
-
-//data for calendar                   
-
+                    'car':Cars=[],
+                    'data':Data=[],
+                    'event':Evants=[],
+                'coment':Comment=[]}
+                  
+let forms = document.querySelectorAll('form'); 
+let currUser;
 let addForAdmin=document.querySelectorAll('.for-admin');
-let hashName = window.location.hash.toString();
 //check that input date is correct
+
+document.getElementById('AddNewModel').onclick=function()
+   {
+       let img = document.getElementById('img').value;
+       let label =document.getElementById('label').value;
+       let liters=document.getElementById('liters').value;
+       let newNodel= new Model(label,img,liters);
+       localStorage.setItem(newNodel.id,JSON.stringify(newNodel));
+       Models.push(newNodel);  
+       console.log(Models);
+       return false;
+   }
+
+  document.getElementById('AddNewCar').onsubmit=function()
+  {
+      let label = document.getElementById('label').value;
+      let petrol=document.getElementById('petrol').value;
+      let userId=currUser.id;
+      let modelId;
+      for(itr in Models)
+      {
+        if(label==Models[itr].label)
+        {
+            modelId=Models[itr].id;
+        }
+      }
+      let car = new Car(petrol,userId,modelId);
+      alert('some');
+       localStorage.setItem(car.id,JSON.stringify(car));
+       Cars.push(car); 
+       return false; 
+  }
+
+
+function makeCarList()
+{
+    let div =document.getElementById('cars');
+    
+    for(i=0;i<Cars.length;i++)
+    {
+        if(Cars[i].userId==currUser.id)
+        {
+            for(let j=0;j<Models.length;j++)
+            {
+                if(Models[j].id==Cars[i].modelId)
+                {
+                    let img =document.createElement('img');
+                    let figure=document.createElement('figure');
+                    let caption=document.createElement('figcaption');
+                    let p1=document.createElement('p');
+                    let p2=document.createElement('p');
+                    let btn1=document.createElement('button');
+                    let btn2=document.createElement('button');
+                    let divBtn=document.createElement('div');
+                    let a1=document.createElement('a');
+                    let a2=document.createElement('a');
+                    a1.href='#ChangInfo';
+                    a1.innerHTML='Change';
+                    btn1.appendChild(a1);
+                    a2.href='#Charts';
+                    a2.innerHTML='Charts';
+                    btn2.appendChild(a2);
+                    divBtn.appendChild(btn1);
+                    divBtn.appendChild(btn2);
+                    divBtn.className='buttons';
+                    img.src=Models[j].pictAdress;
+                    figure.appendChild(img);
+                    p1.innerHTML=Models[j].label
+                    p2.innerHTML=Models[j].liters+' l'
+                    caption.appendChild(p1)
+                    caption.appendChild(p2)
+                    caption.appendChild(divBtn);
+                    figure.appendChild(caption);
+                    div.appendChild(figure);
+                }
+            }
+        }
+    }
+    
+
+}
+
 function validateFormRegestration(nick,email,pass,passAgain)
 {
     let testPass=true;
@@ -163,6 +271,8 @@ function LogIn(lognick,logpass)
                 logInDiv.style.display='none';
                 document.getElementById('mainBlock').style.display='';
                 document.getElementById('userName').innerHTML=Users[itr].nick;
+                currUser=Users[itr];
+                console.log(currUser);
                 break;
 
             }
@@ -186,16 +296,17 @@ function LogIn(lognick,logpass)
 function LogInSubmit()
 {
     let lgin = document.getElementById('LogIn');
-    console.log('success');
     lgin.onsubmit=function(){
         let logpass=document.getElementById('logPass').value;
         let lognick=document.getElementById('logName').value;
         LogIn(lognick,logpass);
+        showForAdmin();
+        makeCarList();
         return false;
     }
     
 }
-console.log()
+
 function changeForm()
 {
     
@@ -225,6 +336,14 @@ function hideDOM()
     }
     
 } 
+function showForAdmin()
+{
+    if(currUser.role=='Admin')
+    for(let i=0;i<addForAdmin.length;i++)
+    {
+        addForAdmin[i].style.display='';
+    }
+} 
 
 function menu()
 {
@@ -247,6 +366,22 @@ function menu()
 }
 
 
+function addSelect()
+{
+    
+    let sectionLabel=document.createElement('select');
+    sectionLabel.setAttribute('id','label');
+    for(let i=0;i<Models.length;i++)
+        {
+            let option=document.createElement('option');
+            option.innerHTML=Models[i].label;
+            console.log(Models[i].label);
+            sectionLabel.appendChild(option);
+        }
+        document.getElementsByClassName('select-model')[0].appendChild(sectionLabel);
+}
+
+
 //functions which should be call after the body is loaded
 function WorkOnLoad()
 {
@@ -260,7 +395,7 @@ function WorkOnLoad()
     {
         FillArrays(listGlobalArray[expr],expr)
     }
-    document.getElementById(hashName.slice(1)).style.display=''
+    addSelect();
     
 }
 
@@ -394,4 +529,5 @@ class calendar extends HTMLElement {
     }
  }
 
+ 
  customElements.define('new-calendar', calendar);

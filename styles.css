@@ -4,6 +4,7 @@
     src: url('font/3967.ttf') format('truetype')
 }
 
+
 body
 {
     font-family: "RobotoThin";
@@ -148,9 +149,11 @@ input
     border-radius: 25px;
     font-size: 1em;
     border: none;
-    margin-top: 10px;
     padding: 15px;
+    margin: auto;
+    margin-top: 10px;
     display: grid;
+    width: fit-content;
 }
 
 select
@@ -225,30 +228,6 @@ button
 
 button a{color: #108a71;}
 
-.view-car
-{
-    background-color:  rgb(228, 228, 228);
-    display: grid;
-    font-weight: 600;
-    margin: 20px;
-}
-
-
-.view-car h3{text-align: center;}
-
-.view-car figure img
-{
-    width: 300px;
-    height: 250px;
-}
-
-.container
-{
-    display: flex;
-    margin: auto;
-    width: fit-content;
-
-}
 
 .buttons
 {
@@ -509,5 +488,55 @@ li .active {
   {
       overflow: auto;
       height: 400px;
+  }
+
+  .conteiner
+{
+    display:grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    font-weight: 600;
+    margin: 20px;
+}
+
+
+.conteiner h3{text-align: center;}
+.conteiner figure{ background-color:  rgb(228, 228, 228);}
+.conteiner figure img
+{
+    width: 400px;
+    height: 250px;
+    margin: auto;
+    padding: 10px;
+}
+.conteiner figcaption
+{
+    padding: 10px;
+}
+.conteiner figcaption p{
+    text-align: center;
+    font-size: 2em;
+}
+.buttons button{color:#0c6e5b;}
+
+img.rot {
+    animation: 1s linear 0s normal none infinite running rot;
+    width: 50px;
+  }
+  @keyframes rot {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes rot {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
   

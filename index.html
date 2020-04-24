@@ -74,61 +74,15 @@
             
             <section id='View'>
                 <h2>Your cars</h2>
-                <div class='container'>
-                    <div class='view-car'>
-                        <figure>
-                            <img src="img/1.jpeg">
-                            <figcaption>
-                                <h3>Model</h3>
-                                <p>Some info</p>
-                            </figcaption>
-                        </figure>
-                        <div class='buttons'>
-                            <button><a href="#ChangInfo">Change</a></button>
-                            <button><a href="#Charts">Charts</a></button>
-                        </div>
-                    </div>
-
-                    <div class='view-car'>
-                        <figure>
-                            <img src="img/1.jpeg">
-                            <figcaption>
-                                <h3>Model</h3>
-                                <p>Some info</p>
-                            </figcaption>
-                        </figure>
-                        <div class='buttons'>
-                            <button><a href="#ChangInfo">Change</a></button>
-                            <button><a href="#Charts">Charts</a></button>
-                        </div>
-                    </div>
-
-                    <div class='view-car'>
-                        <figure>
-                            <img src="img/1.jpeg">
-                            <figcaption>
-                                <h3>Model</h3>
-                                <p>Some info</p>
-                            </figcaption>
-                        </figure>
-                        <div class='buttons'>
-                            <button><a href="#ChangInfo">Change</a></button>
-                            <button><a href="#Charts">Charts</a></button>
-                        </div>
-                    </div>
+                <div class='conteiner' id='cars'>  
                 </div>
+
                 <form id='AddNewCar'>
                     <h3>Add a new car</h3>
-                    <label>Model
-                        <select>
-                            <option>New ASX</option>
-                            <option>New L200</option>
-                            <option>Pajero sport</option>
-                            <option>Pajero</option>
-                        </select>
+                    <label class='select-model'>Model
                     </label>
                      <label>Petrol
-                        <select>
+                        <select id='petrol'>
                             <option>95</option>
                             <option>93</option>
                             <option>94</option>
@@ -136,6 +90,7 @@
                     </label>
                     <input type="submit" value="Add car">
                 </form>
+                
             </section>
 
         </section> 
@@ -143,15 +98,23 @@
         <section id='Sheduale'>
 
             <div class='calendar-container'>
-                <h2>Your shaduale</h2>
+                <h2>Your schaduale</h2>
                 <new-calendar></new-calendar>
             </div>
+
             <div class="calendar-container" id='calenarForm'>
                 <h2>Choose date and time</h2>
                 <new-calendar></new-calendar>
                 <form id='addDateTime'>
+                    <label>Choose a date for your meeting:
+                        <input type='date'>
+                    </label>
                     <label for="appt">Choose a time for your meeting:</label>
                     <input type="time" id="appt" name="appt"min="09:00" max="18:00" required>
+                    <label>Say something
+                        <textarea id="w3mission" rows="4" cols="50">
+                        </textarea>
+                    </label>
                     <input type='submit' value='Submit'>
                 </form>
              </div>
@@ -178,14 +141,15 @@
 
         <section id='AddModel' class='for-admin'>
             <h2>New new model</h3>
-            <form id='AddNewCar'>
+            <form id='AddNewModel'>
                 <h3>Add a new model</h3>
-                <input type='text' placeholder="name of model">
-                <input type='text' placeholder="picture like 1.jpg">
-                <input type='text' placeholder="liters">
-                <input type="submit" value="Add car">
+                <input type='text' id='label' placeholder="name of model">
+                <input type='text' id='img' placeholder="picture like 1.jpg">
+                <input type='text' id='liters'placeholder="liters">
+                <input type="submit" value="Add model">
             </form>
         </section>
+
         <section id='help'>
             <h2>Chat</h2>
             <div class='chat'>
