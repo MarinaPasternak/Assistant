@@ -456,7 +456,9 @@ li .active {
     background-color: #f1f1f1;
     border-radius: 5px;
     padding: 10px;
-    margin: 10px 0;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
   }
   
   /* Darker chat container */
@@ -471,18 +473,27 @@ li .active {
     clear: both;
     display: table;
   }
+  .massage p
+{
+      font-size: 1.5em;
+      font-weight: 800;
+}
   
   /* Style images */
   /* Style time text */
-  .time-right {
+  .name-right {
     float: right;
-    color: #aaa;
+    color: black;
+    font-weight: 800;
+    font-size: 2em;
   }
   
   /* Style time text */
-  .time-left {
+  .name-left {
     float: left;
-    color: #999;
+    color: black;
+    font-weight: 800;
+    font-size: 2em;
   }
   .chat
   {
@@ -494,14 +505,17 @@ li .active {
 {
     display:grid;
     grid-gap: 40px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     font-weight: 600;
     margin: 20px;
 }
 
 
 .conteiner h3{text-align: center;}
-.conteiner figure{ background-color:  rgb(228, 228, 228);}
+.conteiner figure{ 
+    background-color:  rgb(228, 228, 228);
+    width: fit-content;
+}
 .conteiner figure img
 {
     width: 400px;

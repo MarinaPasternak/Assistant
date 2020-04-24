@@ -80,6 +80,7 @@
                 <form id='AddNewCar'>
                     <h3>Add a new car</h3>
                     <label class='select-model'>Model
+                        <select id='modeltype'></select>
                     </label>
                      <label>Petrol
                         <select id='petrol'>
@@ -90,7 +91,7 @@
                     </label>
                     <input type="submit" value="Add car">
                 </form>
-                
+
             </section>
 
         </section> 
@@ -103,8 +104,8 @@
             </div>
 
             <div class="calendar-container" id='calenarForm'>
+
                 <h2>Choose date and time</h2>
-                <new-calendar></new-calendar>
                 <form id='addDateTime'>
                     <label>Choose a date for your meeting:
                         <input type='date'>
@@ -117,6 +118,7 @@
                     </label>
                     <input type='submit' value='Submit'>
                 </form>
+
              </div>
             
         </section>
@@ -152,30 +154,11 @@
 
         <section id='help'>
             <h2>Chat</h2>
-            <div class='chat'>
-                <div class="massage">
-                    <p>Hello. What can I do?</p>
-                    <span class="time-right">11:00</span>
-                </div>
-                
-                <div class="massage darker">
-                    <p>Hello, I have some problems with...</p>
-                    <span class="time-left">11:01</span>
-                </div>
-                
-                <div class="massage">
-                    <p>So, you can...</p>
-                    <span class="time-right">11:02</span>
-                </div>
-                
-                <div class="massage darker">
-                    <p>Thank you</p>
-                    <span class="time-left">11:05</span>
-                </div>
+            <div class='chat' id='customChat'>
             </div>
-            <form>
+            <form id='AddComent'>
                 <label>Say something
-                    <textarea id="w3mission" rows="4" cols="50">
+                    <textarea id="massage" rows="4" cols="50">
                     </textarea>
                 </label>
                 <input type='submit' value="Send">

@@ -70,10 +70,9 @@ class Event
 
 class Comment
 {
-    constructor(notes,currDate,userId) {
-        this.id='event'+(Evants.length+1);
+    constructor(notes,userId) {
+        this.id='coment'+(Comments.length+1);
         this.notes=notes;
-        this.currDate=currDate;
         this.userId=userId;
       }
 }
@@ -84,9 +83,8 @@ let listGlobalArray={'user':Users=[],
                     'car':Cars=[],
                     'data':Data=[],
                     'event':Evants=[],
-                'coment':Comment=[]}
+                'coment':Comments=[]}
                   
-let forms = document.querySelectorAll('form'); 
 let currUser;
 let addForAdmin=document.querySelectorAll('.for-admin');
 //check that input date is correct
@@ -99,13 +97,14 @@ document.getElementById('AddNewModel').onclick=function()
        let newNodel= new Model(label,img,liters);
        localStorage.setItem(newNodel.id,JSON.stringify(newNodel));
        Models.push(newNodel);  
-       console.log(Models);
+       FillArrays('model',Models);
+       addSelect();
        return false;
    }
 
   document.getElementById('AddNewCar').onsubmit=function()
   {
-      let label = document.getElementById('label').value;
+      let label = document.getElementById('modeltype').value;
       let petrol=document.getElementById('petrol').value;
       let userId=currUser.id;
       let modelId;
@@ -120,14 +119,28 @@ document.getElementById('AddNewModel').onclick=function()
       alert('some');
        localStorage.setItem(car.id,JSON.stringify(car));
        Cars.push(car); 
+       FillArrays('car',Cars);
+       makeCarList();
        return false; 
+  }
+
+  document.getElementById('AddComent').onsubmit=function()
+  {
+    let massage =document.getElementById('massage').value;
+    let post = new Comment(massage,currUser.id);
+    localStorage.setItem(post.id,JSON.stringify(post));
+    Comments.push(post); 
+    FillArrays('coment',Comments);
+    makeChat()
+    return false;
+
   }
 
 
 function makeCarList()
 {
     let div =document.getElementById('cars');
-    
+    div.innerHTML='';
     for(i=0;i<Cars.length;i++)
     {
         if(Cars[i].userId==currUser.id)
@@ -137,6 +150,19 @@ function makeCarList()
                 if(Models[j].id==Cars[i].modelId)
                 {
                     let img =document.createElement('img');
+                    img.src='img/load.png';
+                    img.className='rot';
+                    img.style.width='100px';
+                    img.style.height='100px';
+                    setTimeout(function(){
+                        img.className='';
+                        img.style.width='';
+                        img.style.height='';
+                        img.src=Models[j].pictAdress;
+                        img.onerror = function() {
+                            img.src="img/unload.jpg";
+                        };
+                    }, 6000);
                     let figure=document.createElement('figure');
                     let caption=document.createElement('figcaption');
                     let p1=document.createElement('p');
@@ -155,7 +181,6 @@ function makeCarList()
                     divBtn.appendChild(btn1);
                     divBtn.appendChild(btn2);
                     divBtn.className='buttons';
-                    img.src=Models[j].pictAdress;
                     figure.appendChild(img);
                     p1.innerHTML=Models[j].label
                     p2.innerHTML=Models[j].liters+' l'
@@ -164,9 +189,11 @@ function makeCarList()
                     caption.appendChild(divBtn);
                     figure.appendChild(caption);
                     div.appendChild(figure);
+                    
                 }
             }
         }
+        
     }
     
 
@@ -302,6 +329,7 @@ function LogInSubmit()
         LogIn(lognick,logpass);
         showForAdmin();
         makeCarList();
+        makeChat();
         return false;
     }
     
@@ -336,6 +364,7 @@ function hideDOM()
     }
     
 } 
+
 function showForAdmin()
 {
     if(currUser.role=='Admin')
@@ -369,8 +398,8 @@ function menu()
 function addSelect()
 {
     
-    let sectionLabel=document.createElement('select');
-    sectionLabel.setAttribute('id','label');
+    let sectionLabel=document.getElementById('modeltype');
+    sectionLabel.innerHTML='';
     for(let i=0;i<Models.length;i++)
         {
             let option=document.createElement('option');
@@ -378,7 +407,49 @@ function addSelect()
             console.log(Models[i].label);
             sectionLabel.appendChild(option);
         }
-        document.getElementsByClassName('select-model')[0].appendChild(sectionLabel);
+    
+}
+
+function makeChat()
+{
+    let div = document.getElementById('customChat');
+    div.innerHTML='';
+    for(let i=0;i<Comments.length;i++)
+    {
+        let divMassage=document.createElement('div');
+        let massage=document.createElement('p');
+        let nick=document.createElement('span');
+        for(let j=0;j<Users.length;j++)
+        {
+            if(Users[j].id==Comments[i].userId)
+            {
+                 nick.innerHTML=Users[j].nick;
+            }
+            
+            
+        }
+        massage.innerHTML=Comments[i].notes;
+        if(currUser.id==Comments[i].userId)
+        {
+            divMassage.className='massage darker';
+            nick.className='name-right';
+            divMassage.appendChild(nick);
+            divMassage.appendChild(massage); 
+            console.log(divMassage);
+            
+        }
+        else
+        {
+            divMassage.className='massage';
+            nick.className='name-left';
+            divMassage.appendChild(nick);
+            divMassage.appendChild(massage);
+            
+            console.log(divMassage); 
+        }
+        div.appendChild(divMassage)
+    }
+   
 }
 
 
