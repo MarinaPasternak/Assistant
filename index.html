@@ -24,7 +24,7 @@
                 <h3>Log in</h3>
                 <input id='logName'type='text' required placeholder='Nickname'>
                 <input id='logPass'type="password" required placeholder='Password'>
-                <address><a href="#Regestr">Registrat now</a></address>
+                <address><a href="#Regestr">Register now</a></address>
                 <input type="submit" value="Log in">
             </form>
         </div>
@@ -108,12 +108,12 @@
                 <h2>Choose date and time</h2>
                 <form id='addDateTime'>
                     <label>Choose a date for your meeting:
-                        <input type='date'>
+                        <input type='date' id='date'>
                     </label>
-                    <label for="appt">Choose a time for your meeting:</label>
-                    <input type="time" id="appt" name="appt"min="09:00" max="18:00" required>
+                    <label for="time">Choose a time for your meeting:</label>
+                    <input type="time" id="time" name="appt"min="09:00" max="18:00" required>
                     <label>Say something
-                        <textarea id="w3mission" rows="4" cols="50">
+                        <textarea id="event" rows="4" cols="50">
                         </textarea>
                     </label>
                     <input type='submit' value='Submit'>

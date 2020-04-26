@@ -89,14 +89,14 @@ let currUser;
 let addForAdmin=document.querySelectorAll('.for-admin');
 //check that input date is correct
 
-document.getElementById('AddNewModel').onclick=function()
+document.getElementById('AddNewModel').onsubmit=function()
    {
        let img = document.getElementById('img').value;
        let label =document.getElementById('label').value;
        let liters=document.getElementById('liters').value;
        let newNodel= new Model(label,img,liters);
        localStorage.setItem(newNodel.id,JSON.stringify(newNodel));
-       Models.push(newNodel);  
+       Models.push(newNodel);
        FillArrays('model',Models);
        addSelect();
        return false;
@@ -116,10 +116,8 @@ document.getElementById('AddNewModel').onclick=function()
         }
       }
       let car = new Car(petrol,userId,modelId);
-      alert('some');
        localStorage.setItem(car.id,JSON.stringify(car));
        Cars.push(car); 
-       FillArrays('car',Cars);
        makeCarList();
        return false; 
   }
@@ -133,6 +131,20 @@ document.getElementById('AddNewModel').onclick=function()
     FillArrays('coment',Comments);
     makeChat()
     return false;
+
+  }
+
+  document.getElementById('addDateTime').onsubmit=function()
+  {
+        let date=document.getElementById('date').value;
+        let time=document.getElementById('time').value;
+        let notes=document.getElementById('event').value;
+        let userId=currUser.id;
+        let evet=new Event(notes,time,date,userId);
+        localStorage.setItem(evet.id,JSON.stringify(evet));
+        Evants.push(evet); 
+        FillArrays('event',Evants);
+        return false;
 
   }
 
@@ -330,10 +342,12 @@ function LogInSubmit()
         showForAdmin();
         makeCarList();
         makeChat();
+        getEvents();
         return false;
     }
     
 }
+
 
 function changeForm()
 {
@@ -435,8 +449,6 @@ function makeChat()
             nick.className='name-right';
             divMassage.appendChild(nick);
             divMassage.appendChild(massage); 
-            console.log(divMassage);
-            
         }
         else
         {
@@ -444,39 +456,38 @@ function makeChat()
             nick.className='name-left';
             divMassage.appendChild(nick);
             divMassage.appendChild(massage);
-            
-            console.log(divMassage); 
         }
         div.appendChild(divMassage)
     }
    
 }
 
-
-//functions which should be call after the body is loaded
-function WorkOnLoad()
+function getEvents()
 {
-    
-    ForSubmit();
-    LogInSubmit();
-    hideDOM();
-    menu();
-    changeForm();
-    for(expr in listGlobalArray)
+    let year=document.getElementById('year').getAttribute("yearId");
+    let mounth=document.getElementById('mounth').getAttribute("miunthId");
+    let dateInarray;
+    let li=document.querySelectorAll('.days li');
+    for(let i=0;i<Evants.length;i++)
     {
-        FillArrays(listGlobalArray[expr],expr)
+        if(Evants[i].userId=currUser.id)
+        {
+            dateInarray=(Evants[i].date).split('-');
+            if(dateInarray[0]==year && dateInarray[1]-1==mounth)
+            {
+                for(let j=0;j<li.length;j++)
+                {
+                    
+                    if(li[j].getAttribute("day")==+dateInarray[2])
+                        {
+                            li[j].setAttribute('class','active');
+                        }   
+                }
+            }
+        }
     }
-    addSelect();
-    
+
 }
-
-  //localStorage.clear();
-    document.addEventListener("DOMContentLoaded",WorkOnLoad);
-})();
-
-
-
-
 
 function getWeekDay(date) {
     let days = ['Mo','Tu','We','Th','Fr','Sa','Su'];
@@ -507,18 +518,21 @@ function numDays(currentYear,currMounth,ulDays)
     {
         let li=document.createElement('li')
         li.innerHTML=days[i];
+        li.setAttribute('day',0)
         ulDays.appendChild(li)
     }
     for(let i=1;i<days.indexOf(startWeekDay);i++)
     {
         let li=document.createElement('li')
         li.innerHTML=''
+        li.setAttribute('day',0)
         ulDays.appendChild(li)
     }
     for(let i=1;i<month[mon[currMounth]]+1;i++)
     {
         let li=document.createElement('li')
         li.innerHTML=i;
+        li.setAttribute('day',i)
         ulDays.appendChild(li)
     }
     return ulDays
@@ -547,6 +561,10 @@ class calendar extends HTMLElement {
        
 
         divCalendar.setAttribute('class','date');
+        year.setAttribute('id','year');
+        year.setAttribute('yearid',currentYear);
+        mounth.setAttribute('miunthId',currMounth);
+        mounth.setAttribute('id','mounth');
         ulDays.setAttribute('class','days');
         back.setAttribute('class','back');
         backArrow.innerHTML='&lt;';
@@ -567,6 +585,9 @@ class calendar extends HTMLElement {
             ulDays.innerHTML = "";
             ulDays=numDays(currentYear,currMounth,ulDays);
             mounth.innerHTML=mon[currMounth];
+            mounth.setAttribute('miunthId',currMounth);
+            year.setAttribute('yearid',currentYear);
+            getEvents();
             year.innerHTML=currentYear;
         }
 
@@ -584,6 +605,9 @@ class calendar extends HTMLElement {
             ulDays.innerHTML = "";
             ulDays=numDays(currentYear,currMounth,ulDays);
             mounth.innerHTML=mon[currMounth];
+            mounth.setAttribute('miunthId',currMounth);
+            year.setAttribute('yearid',currentYear);
+            getEvents();
             year.innerHTML=currentYear;
         }
 
@@ -602,3 +626,26 @@ class calendar extends HTMLElement {
 
  
  customElements.define('new-calendar', calendar);
+//functions which should be call after the body is loaded
+function WorkOnLoad()
+{
+    
+    ForSubmit();
+    LogInSubmit();
+    hideDOM();
+    menu();
+    changeForm();
+    for(expr in listGlobalArray)
+    {
+        FillArrays(listGlobalArray[expr],expr)
+    }
+    addSelect();
+    
+}
+
+    document.addEventListener("DOMContentLoaded",WorkOnLoad);
+})();
+
+
+
+
