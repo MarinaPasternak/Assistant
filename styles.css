@@ -19,6 +19,7 @@ h2
     text-align: center;
     font-size: 3em;
     font-weight: 800;
+    box-shadow: 0 8px 0 rgb(167, 167, 167);
     color: #108a71;
     background-color: rgb(228, 228, 228);
 }
@@ -137,7 +138,7 @@ form address
     margin: 10px;
 }
 
-form h3
+h3
 {
     text-align: center;
     font-size: 2em;
@@ -204,15 +205,16 @@ textarea
 
 button
 {
-    padding: 25px 20px;
+    background-color: rgb(228, 228, 228);
+    padding: 15px 50px;
     font-weight: 600;
     font-size: 1em;
+    color: #108a71;
     border: solid;
-    border-radius: 35%;
+    border-radius: 26%;
     border-width: 4px;
     margin: auto;
     margin-top: 10px;
-    cursor: pointer;
 }
 
 label{ margin: 4px;}
@@ -221,15 +223,8 @@ label{ margin: 4px;}
     background-color: #108a71;
     color:  black;
 }
-.view-car button
-{
-    background-color:  rgb(228, 228, 228);
-    color: #108a71;
-    
-}
 
 button a{color: #108a71;}
-
 
 .buttons
 {
@@ -285,6 +280,7 @@ li{margin: auto;}
     padding: 5px;
     background: #1abc9c;
     color: white;
+    cursor:pointer;
 }
 
 .lists
@@ -557,4 +553,19 @@ img.rot {
       transform: rotate(360deg);
     }
   }
-  
+
+ .info{
+    display: grid; 
+    padding: 15px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: 0 8px 0 rgb(167, 167, 167);
+    background-color: rgb(228, 228, 228);
+    border-radius: 25px;
+  }
+
+  .inline
+  {
+      display: flex;
+  }

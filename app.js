@@ -134,6 +134,34 @@ document.getElementById('AddNewModel').onsubmit=function()
 
   }
 
+  document.getElementById('filter').onclick=function()
+  {
+      let p=document.querySelectorAll('.models-type');
+      let div= document.querySelectorAll('#cars figure');
+      let option= document.getElementById('modelfilter').value;
+        for(let j=0;j<div.length;j++)
+        {
+            if(p[j].getAttribute('models-type')!=option)
+            {
+                div[j].style.display='none'
+            }
+            else
+            {
+                div[j].style.display=''
+            }
+        }
+  }
+  document.getElementById('showAll').onclick=function()
+      {
+        let div= document.querySelectorAll('#cars figure');
+        for(let j=0;j<div.length;j++)
+        {
+            
+                div[j].style.display=''
+        
+        }
+      }
+
   document.getElementById('addDateTime').onsubmit=function()
   {
         let date=document.getElementById('date').value;
@@ -145,7 +173,6 @@ document.getElementById('AddNewModel').onsubmit=function()
         Evants.push(evet); 
         FillArrays('event',Evants);
         return false;
-
   }
 
 
@@ -194,6 +221,8 @@ function makeCarList()
                     divBtn.appendChild(btn2);
                     divBtn.className='buttons';
                     figure.appendChild(img);
+                    p1.className='models-type'
+                    p1.setAttribute('models-type',Models[j].label)
                     p1.innerHTML=Models[j].label
                     p2.innerHTML=Models[j].liters+' l'
                     caption.appendChild(p1)
@@ -413,13 +442,20 @@ function addSelect()
 {
     
     let sectionLabel=document.getElementById('modeltype');
+    let modelfilter=document.getElementById('modelfilter');
     sectionLabel.innerHTML='';
+    modelfilter.innerHTML='';
     for(let i=0;i<Models.length;i++)
         {
             let option=document.createElement('option');
             option.innerHTML=Models[i].label;
-            console.log(Models[i].label);
             sectionLabel.appendChild(option);
+        }
+    for(let i=0;i<Models.length;i++)
+        {
+            let option=document.createElement('option');
+            option.innerHTML=Models[i].label;
+            modelfilter.appendChild(option);
         }
     
 }
@@ -481,6 +517,13 @@ function getEvents()
                     if(li[j].getAttribute("day")==+dateInarray[2])
                         {
                             li[j].setAttribute('class','active');
+                            li[j].addEventListener('click',function ()
+                            {
+                                let block = document.getElementById('infoEvent');
+                                block.innerHTML='';
+                                let text='<p>'+Evants[i].time+"</p>"+"<p>"+Evants[i].date+"</p>"+"<p>"+Evants[i].notes+"</p>"
+                                block.innerHTML=text;
+                            })
                         }   
                 }
             }
