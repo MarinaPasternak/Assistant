@@ -1,11 +1,13 @@
-class User//all information about users 
+//сущности сайта
+class User//пользователи 
     {
     
-        constructor(nickname, email,password) {
+        constructor(nickname, email,password) {//конструктор принимает данные введеные ользователем
+            //нимя для входа, почта,пароль
             this.nick = nickname;
             this.email = email;
             this.password=password;
-            this.id='user'+(Users.length+1);
+            this.id='user'+(Users.length+1);//создаем свойство для того,
             let role = this.MakeRole(nickname);
             this.role = role;
         
@@ -49,11 +51,12 @@ class Car
 
 class dataForChart 
 {
-    constructor(spendliter,userId,modelId) {
+    constructor(times,userId,carId,date) {
         this.id='data'+(Data.length+1);
-        this.spendliter=spendliter;
+        this.times=times;
+        this.date=date;
         this.userId=userId;
-        this.modelId=modelId;
+        this.carId=carId;
       }
 }
 
@@ -78,10 +81,12 @@ class Comment
 }
 //some global
 (function (){
-let listGlobalArray={'user':Users=[],
-                    'model':Models=[],
-                    'car':Cars=[],
-                    'data':Data=[],
+let listGlobalArray={'user':Users=[{nick: "Admin", email: "test1@gmail.com", password: "123", id: "user1", role: "Admin"}],
+                    'model':Models=[{label: "LV3000", pictAdress: "img/1.jpg", liters: "2.6", id: "model1"},
+                    {label: "Outlander", pictAdress: "img/3.jpg", liters: "2.8", id: "model2"}],
+                    'car':Cars=[{id: "car1", patrols: "93", userId: "user1", modelId: "model2"},
+                    {id: "car2", patrols: "93", userId: "user1", modelId: "model1"}],
+                    'data':Data=[ {id: "data1", times: "0.25", date: "2020-04-30", userId: "user1", carId: "Outlander"}],
                     'event':Evants=[],
                 'coment':Comments=[]}
                   
@@ -89,7 +94,21 @@ let currUser;
 let addForAdmin=document.querySelectorAll('.for-admin');
 //check that input date is correct
 
-document.getElementById('AddNewModel').onsubmit=function()
+document.getElementById('LogIn').onsubmit=function(){
+
+        let logpass=document.getElementById('logPass').value;
+        let lognick=document.getElementById('logName').value;
+        LogIn(lognick,logpass);
+        showForAdmin();
+        makeCarList();
+        makeChat();
+        getEvents();
+        selectCars();
+        charts();
+        return false;
+    }
+
+   document.getElementById('AddNewModel').onsubmit=function()
    {
        let img = document.getElementById('img').value;
        let label =document.getElementById('label').value;
@@ -160,7 +179,7 @@ document.getElementById('AddNewModel').onsubmit=function()
                 div[j].style.display=''
         
         }
-      }
+    }
 
   document.getElementById('addDateTime').onsubmit=function()
   {
@@ -175,6 +194,21 @@ document.getElementById('AddNewModel').onsubmit=function()
         return false;
   }
 
+  document.getElementById('AddData').onsubmit=function()
+  {
+     let date= document.getElementById('dateData').value;
+     alert(date)
+     let car=document.getElementById('yourCar').value;
+     alert(car)
+     let koef=document.getElementById('koef').value
+     alert(koef)
+     let idUser=currUser.id;
+     let data = new dataForChart(koef,idUser,car,date);
+     localStorage.setItem(data.id,JSON.stringify(data));
+     Data.push(data); 
+     FillArrays('data',Data);
+     return false;
+  }
 
 function makeCarList()
 {
@@ -209,11 +243,8 @@ function makeCarList()
                     let btn1=document.createElement('button');
                     let btn2=document.createElement('button');
                     let divBtn=document.createElement('div');
-                    let a1=document.createElement('a');
                     let a2=document.createElement('a');
-                    a1.href='#ChangInfo';
-                    a1.innerHTML='Change';
-                    btn1.appendChild(a1);
+                    btn1.innerHTML='Delete'
                     a2.href='#Charts';
                     a2.innerHTML='Charts';
                     btn2.appendChild(a2);
@@ -361,22 +392,6 @@ function LogIn(lognick,logpass)
 
 }
 
-function LogInSubmit()
-{
-    let lgin = document.getElementById('LogIn');
-    lgin.onsubmit=function(){
-        let logpass=document.getElementById('logPass').value;
-        let lognick=document.getElementById('logName').value;
-        LogIn(lognick,logpass);
-        showForAdmin();
-        makeCarList();
-        makeChat();
-        getEvents();
-        return false;
-    }
-    
-}
-
 
 function changeForm()
 {
@@ -458,6 +473,34 @@ function addSelect()
             modelfilter.appendChild(option);
         }
     
+}
+
+function selectCars()
+{
+    let select=document.getElementById('yourCar');
+    let labels=[]
+    for(let i=0;i<Cars.length;i++)
+    {
+        if(Cars[i].userId==currUser.id)
+        { 
+            for(let j=0;j<Models.length;j++)
+            {
+                if(Models[j].id==Cars[i].modelId)
+                {
+                    labels.push(Models[j].label)
+                }
+            }
+        }
+    }
+    console.log(labels)
+    for(let i=0;i<labels.length;i++)
+    {
+
+        let option=document.createElement('option')
+        option.innerHTML=labels[i]
+        select.appendChild(option)
+    
+    }
 }
 
 function makeChat()
@@ -669,12 +712,61 @@ class calendar extends HTMLElement {
 
  
  customElements.define('new-calendar', calendar);
+
+ function charts()
+ {
+    //constructor(times,userId,carId,date)
+    let arrSum=[]
+    let mounth=[]
+    let koef=[]
+    let mon=['January','February','March','April','May',
+    'June','July','August','September','October','November','December'];
+    let litMounth=[];
+    for(let i=0;i<Data.length;i++)
+    {
+        mounth.push(+((Data[i].date).split('-'))[1])
+        koef.push(+Data[i].times)
+    }
+    for(let i in mounth)
+    {
+        litMounth.push(mon[mounth[i]])
+    }
+    let sum=0;
+        for(let j=0;j<mounth.length;j++)
+            {
+                for(let i=mounth.length-1;i>j;i--)
+                { 
+                    if(mounth[i]==mounth[j])
+                    {
+                        sum+=koef[i]+koef[j] 
+                        if(j==mounth.length-2)
+                        {
+                            arrSum.push(sum)
+                        }
+                    }
+                    else
+                    {
+                        if(sum!=0)
+                        {
+                            arrSum.push(sum)
+                        }
+                        
+                        sum=0;
+                    }
+                }
+            }
+    console.log(koef)        
+    console.log(arrSum);
+    console.log(mounth)
+    
+
+
+ }
 //functions which should be call after the body is loaded
 function WorkOnLoad()
 {
     
     ForSubmit();
-    LogInSubmit();
     hideDOM();
     menu();
     changeForm();
@@ -689,6 +781,27 @@ function WorkOnLoad()
     document.addEventListener("DOMContentLoaded",WorkOnLoad);
 })();
 
-
-
-
+var popCanvas = document.getElementById("popChart");
+var barChart = new Chart(popCanvas, {
+  type: 'bar',
+  data: {
+    labels: ["China", "India", "United States", "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Japan"],
+    datasets: [{
+      label: 'Population',
+      data: [1379302771, 1281935911, 326625791, 260580739, 207353391, 204924861, 190632261, 157826578, 142257519, 126451398],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+        'rgba(75, 192, 192, 0.6)',
+        'rgba(153, 102, 255, 0.6)',
+        'rgba(255, 159, 64, 0.6)',
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+        'rgba(75, 192, 192, 0.6)',
+        'rgba(153, 102, 255, 0.6)'
+      ]
+    }]
+  }
+});

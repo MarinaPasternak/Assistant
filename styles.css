@@ -123,7 +123,7 @@ form
     display: grid;
     width: fit-content;
     height: fit-content;
-    padding: 15px;
+    padding: 30px;
     text-align: center;
     box-shadow: 0 8px 0 rgb(167, 167, 167);
     background-color: rgb(228, 228, 228);
@@ -556,9 +556,8 @@ img.rot {
 
  .info{
     display: grid; 
-    padding: 15px;
+    padding: 30px;
     margin: auto;
-    margin-top: 10px;
     text-align: center;
     box-shadow: 0 8px 0 rgb(167, 167, 167);
     background-color: rgb(228, 228, 228);

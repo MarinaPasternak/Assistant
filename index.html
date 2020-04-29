@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Assistant</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
   </head>
 
   <body>
@@ -68,13 +69,10 @@
 
     <section id='MyCars'>
 
-            <section id='ChangInfo'>
-
-            </section>
-            
             <section id='View'>
                 <h2>Your cars</h2>
                 <div class='inline'>
+
                     <div class='info'>
                         <h3>Filter</h3>
                         <label class='select-model'>Model
@@ -83,6 +81,7 @@
                         <button id='filter'>Filter</button>
                         <button id='showAll'>Show all</button>
                     </div>
+                    
                     <form id='AddNewCar'>
                         <h3>Add a new car</h3>
                         <label class='select-model'>Model
@@ -97,6 +96,28 @@
                         </label>
                         <input type="submit" value="Add car">
                     </form>
+
+                    <form id='AddData'>
+                        <h3>Fill forms</h3>
+                        <label>Choose a date:
+                            <input type='date' id='dateData'>
+                        </label>
+                        <label>Choose a car:
+                            <select id='yourCar'>
+                            </select>
+                        </label>
+                        <label>How many times do you feel:
+                            <select id='koef'>
+                                <option>0.25</option>
+                                <option>0.5</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </label>
+                        <input type="submit" value="Add data">
+                    </form>
+
                 </div>
                 <div class='conteiner' id='cars'>  
                 </div>
@@ -137,10 +158,10 @@
         </section>
 
         <section id='Charts'>
-            <h2>Yoour charts</h2>
+            <h2>Your charts</h2>
             <div class="figures">
                 <figure>
-                    <img src="img/ex1.png">
+                    <canvas id="popChart" width="600" height="400"></canvas>
                     <figcaption>Caption</figcaption>
                 </figure>
                 <figure>
@@ -206,6 +227,7 @@
         </section>
     </main>
     <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   </body>
 
 </html>
